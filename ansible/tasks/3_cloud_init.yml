@@ -1,10 +1,10 @@
 ---
-- name: 'check if service is running'
+- name: 'CLOUD INIT : check if service is running'
   ansible.builtin.service:
     name: cloud-init.service
   register: service_info
 
-- name: 'disable service'
+- name: 'CLOUD INIT : disable service'
   ansible.builtin.file:
     path: /etc/cloud/cloud-init.disabled
     state: touch
