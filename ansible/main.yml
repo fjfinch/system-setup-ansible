@@ -5,7 +5,8 @@
   become_method: sudo
 
   vars:
-    <POSSIBLE VARS>
+    device_hostname: Raspberry-Pi-5
+    device_timezone: Europe/Amsterdam
 
   pre_tasks:
     - name: 'Connect to host & retrieve facts'
@@ -16,7 +17,5 @@
 
   roles:
     - role: GITHUB.UPDATE.ROLE
-    - role: <POSSIBLE ROLES>
-
-  tasks:
-    - import_tasks: tasks/<POSSIBLE TASKS>
+    - role: GITHUB.HOSTNAME.ROLE
+    - role: GITHUB.TIMEZONE.ROLE
