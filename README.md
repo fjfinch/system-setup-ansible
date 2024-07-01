@@ -1,5 +1,5 @@
 # system-setup-ansible
-system-setup-ansible
+Ansible playbook to configure some stuff on a system (hostname / timezone / etc.).
 
 ## Install & setup
 To use this repo, a couple of tools are required:
