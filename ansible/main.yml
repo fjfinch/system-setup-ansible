@@ -17,5 +17,10 @@
 
   roles:
     - role: GITHUB.UPDATE.ROLE
-    - role: GITHUB.HOSTNAME.ROLE
-    - role: GITHUB.TIMEZONE.ROLE
+
+  tasks:
+    - import_tasks: tasks/1_hostname.yml
+    - import_tasks: tasks/2_timezone.yml
+    - import_tasks: tasks/3_cloud_init.yml
+    - import_tasks: tasks/4_zsh.yml
+#    - import_tasks: tasks/5_terminator.yml
