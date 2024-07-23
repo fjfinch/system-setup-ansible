@@ -54,7 +54,7 @@ TRAPALRM() {
 }
 
 c_grey_l="%b%F{247}"
-c_grey_d="%b%F{242}"
+c_grey_d="%b%F{243}"
 c_red="%B%F{160}"
 
 # Colored prompt with prompt-expansion
