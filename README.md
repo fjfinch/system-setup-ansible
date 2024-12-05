@@ -24,7 +24,7 @@ ansible-galaxy collection install -r requirements.yml
 ```
 
 4 - Execute the playbook:
-> change the variables in `main.yml`
+> Note: change the variables in `main.yml`
 ```bash
 ansible-playbook main.yml -K
 ```
