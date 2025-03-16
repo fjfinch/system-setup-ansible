@@ -28,9 +28,6 @@ setopt INC_APPEND_HISTORY		# write commands immediately from memory to file
 setopt EXTENDED_HISTORY			# add timestamp of commands in file
 
 # Grey auto-suggestions based on history (and other) - zsh-autosuggestions
-#    is-at-least
-#    add-zsh-hook
-#    (anon)
 if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
@@ -84,24 +81,16 @@ update_prompt() {
 #    RPROMPT="${WIDGET}"
 }
 
-#    (anon)
-#    add-zsh-hook
-#    gitstatus_start
-#    gitstatus_stop
-#    _gitstatus_clear
 gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
 precmd_functions+=(update_prompt)
 
 # Colored commands - zsh-syntax-highlighting
-#    _zsh_highlight_load_highlighters
-#    _zsh_highlight_bind_widgets
-#    is-at-least
-#    add-zsh-hook
+# https://github.com/zsh-users/zsh-syntax-highlighting/tree/master/docs/highlighters
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     . ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white               # UNKNOWN COMMAND
-    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=cyan         # command -option
-    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=cyan         # command --option
+    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white               # unknown command
+    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=cyan         # -option
+    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=cyan         # --option
 fi
 
 # Colored output from some commands
@@ -121,8 +110,6 @@ export LESS_TERMCAP_us=$'\E[1;32m'      # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'         # reset underline
 
 # Interactive drop down menu for tab completion features
-#   compinit
-#   compaudit 2x
 autoload -Uz compinit
 compinit -d ~/.cache/zcompdump
 zstyle ':completion:*:*:*:*:*' menu select
