@@ -16,6 +16,7 @@
           - 'network'
 
   roles:
+    - role: GITHUB.REQUIREMENTS.ROLE
     - role: GITHUB.UPDATE.ROLE
 
   tasks:
