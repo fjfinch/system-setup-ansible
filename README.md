@@ -10,7 +10,7 @@ To use this repo, a couple of tools are required:
 
 1 - Oneliner to install all above:
 ```bash
-sudo apt update && sudo apt install -y git pipx && pipx install ansible --include-deps && . ~/.profile
+sudo apt update && sudo apt install -y git pipx && pipx ensurepath && . ~/.profile && pipx install ansible --include-deps
 ```
 
 2 - Clone this repository:
