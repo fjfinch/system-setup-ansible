@@ -6,7 +6,7 @@
 
 - name: 'ZSH : change default shell'
   ansible.builtin.user:
-    name: '{{ ansible_env.USER }}'
+    name: '{{ ansible_facts["env"]["USER"] }}'
     shell: /usr/bin/zsh
   become: true
 
@@ -15,14 +15,14 @@
     repo: '{{ item.repo }}'
     dest: '{{ item.dest }}'
   loop:
-    - { repo: 'https://github.com/zsh-users/zsh-autosuggestions.git', dest: '{{ ansible_env.HOME }}{{ zsh_path }}/zsh-autosuggestions' }
-    - { repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git', dest: '{{ ansible_env.HOME }}{{ zsh_path }}/zsh-syntax-highlighting' }
-    - { repo: 'https://github.com/romkatv/gitstatus.git', dest: '{{ ansible_env.HOME }}{{ zsh_path }}/gitstatus' }
+    - { repo: 'https://github.com/zsh-users/zsh-autosuggestions.git', dest: '{{ ansible_facts["env"]["HOME"] }}{{ zsh_path }}/zsh-autosuggestions' }
+    - { repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git', dest: '{{ ansible_facts["env"]["HOME"] }}{{ zsh_path }}/zsh-syntax-highlighting' }
+    - { repo: 'https://github.com/romkatv/gitstatus.git', dest: '{{ ansible_facts["env"]["HOME"] }}{{ zsh_path }}/gitstatus' }
   vars:
     zsh_path: /.zsh
 
 - name: 'ZSH : change .zshrc file'
   ansible.builtin.copy:
     src: 'files/zsh/.zshrc'
-    dest: '{{ ansible_env.HOME }}/'
+    dest: '{{ ansible_facts["env"]["HOME"] }}/'
     mode: '0644'
